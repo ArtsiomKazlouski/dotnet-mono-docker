@@ -6,3 +6,5 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03280
 	&& apt-get update \
 	&& apt-get install -y mono-devel ca-certificates-mono fsharp mono-vbnc nuget referenceassemblies-pcl \
 	&& rm -rf /var/lib/apt/lists/*
+COPY install-docker.sh /usr/local/install-docker.sh
+RUN /usr/local/install-docker.sh
