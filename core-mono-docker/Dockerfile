@@ -9,7 +9,7 @@ RUN apt-get -y install \
      curl \
      software-properties-common
 	 
-RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 
 RUN add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/debian \
@@ -18,9 +18,7 @@ RUN add-apt-repository \
    
 RUN apt-get update
 
-RUN apt-get install docker-ce
-
-RUN docker run hello-world
+RUN apt-get -y install docker-ce
 
 RUN apt-get update
 #MONO Section
