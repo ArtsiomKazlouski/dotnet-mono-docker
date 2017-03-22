@@ -29,7 +29,11 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03280
 	&& apt-get install -y mono-devel ca-certificates-mono fsharp mono-vbnc nuget referenceassemblies-pcl \
 	&& rm -rf /var/lib/apt/lists/*
 	
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.sh .
 
-ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["sh"]
+ENTRYPOINT ["sh", "docker-entrypoint.sh"]
+
+#COPY docker-entrypoint.sh /usr/local/bin/
+
+#ENTRYPOINT ["docker-entrypoint.sh"]
+#CMD ["sh"]
